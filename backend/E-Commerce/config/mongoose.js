@@ -14,8 +14,6 @@ const db = mongoose.connection;
 module.exports=db
 
 
-
-
 // const mongoose=require('mongoose')
 // mongoose.connect('mongodb://0.0.0.0/E-Commerce')
 // .then(()=>{
