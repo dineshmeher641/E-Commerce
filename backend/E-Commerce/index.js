@@ -4,7 +4,7 @@ const dotenv = require("dotenv").config()
 const db = require("./config/mongoose")
 const mongoose = require("mongoose")
 const bodyParser = require("body-parser");
-
+const morgan = require("morgan")
 const PORT = process.env.PORT || 4000
 
 
