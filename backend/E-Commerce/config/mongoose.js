@@ -2,10 +2,10 @@ const mongoose = require('mongoose');
 
 mongoose.connect("mongodb://0.0.0.0/E-Commerce")
 .then(()=>{
-    console.log("Connect to the database succesfully");
+    console.log("Connect to the database successfully");
 })
 .catch(()=>{
-    console.log("failed to Connect the database succesfully");
+    console.log("failed to Connect the database ");
 
 })
 
