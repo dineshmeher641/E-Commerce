@@ -1,5 +1,5 @@
 const mongoose = require("mongoose"); // Erase if already required
-
+const bcrypt = require('bcrypt');
 // Declare the Schema of the Mongo model
 var userSchema = new mongoose.Schema({
     firstname:{
@@ -24,7 +24,34 @@ var userSchema = new mongoose.Schema({
         type:String,
         required:true,
     },
+    isAdmin:{
+        type:String,
+        default:"user"
+    },
+},
+{
+    timestamps:true
 });
+
+
+//to hash password
+
+userSchema.pre('save',async function(){
+    const salt = await bcrypt.genSaltSync(10);
+    this.password= await bcrypt.hash(this.password,salt)
+
+})
+
+//to compare password
+
+userSchema.methods.isPasswordMatched = async function(enterPassword){
+return await bcrypt.compare(enterPassword, this.password);
+}
+
+
+
+
+
 
 //Export the model
 module.exports = mongoose.model('User', userSchema);

@@ -17,3 +17,16 @@ const errorHandler = (err,req,res,next)=>{
 
 
 module.exports = {errorHandler,notFound}
+
+
+
+//Another type of handleing error
+
+// class ErrorHandler extends Error {
+//     constructor(message, statusCode) {
+//         super(message)
+//         this.statusCode = statusCode
+
+//         Error.captureStackTrace(this, this.constructor)
+//     }
+// }
